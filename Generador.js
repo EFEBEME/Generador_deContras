@@ -4,35 +4,27 @@ Numeros generados de manera aleatoria.
 4 numeros del 1 al 104.
 
 
-El problema que enfrentamos es que los numeros generados aleatoriamente acaban por repetirse.
-Y mas de 1 letra termina por tener el mismo numero que otra. Lo que impide que funcione correctamente.
-en el momento de generar el numero debemos revisar si ya ha salido.
-Si no ha salido antes se a;ade al - let numero -
-si SI ha salido antesse repite la generacion de numero
-repitiendo el proceso hasta hayar un numero no repetido
-DO WHILE
-el inconveniente que encuentro es que podrian repetirse los mismos numeros una y otra vez-
-realentizando el proceso.
-
-
 */
 
 //crear un array con las letras que quieras utilizar
-let letras_Y_simbolos = [
+let letras = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
     'y', 'z'
 ];
 
+
 //creas la funcion que asigna los numeros a las letras
-function crearEquivalencia(){
+function letrasEquivalencia(){
 
     //creas un objeto que guarde las letras con sus numeros
     const indice = {};
+
+    //
     let duplicados = new Set();
 
     //creas una bucle que vaya letra por letra por el array
-    for( let letra of letras_Y_simbolos){
+    for( let letra of letras){
 
         /*creas un nuevo array para almacenar los 4 numeros que se
         asignaran a la letra por el que esta pasando el bucle*/
@@ -64,9 +56,56 @@ function crearEquivalencia(){
     return indice
 }
 //llamas a la funcion para que se genere el objeto 'indice'
-console.log(JSON.stringify(crearEquivalencia(), null, 4));
+console.log(JSON.stringify(letrasEquivalencia(), null, 4));
 
 /*
 =======================================================================
 =======================================================================
 */
+
+//Hacemos lo mismo con simbolos
+
+let simbolos = [
+    '.', '!', '_', '@', '$', '%', '*', '+'
+];
+
+
+function simbolosEquivalencia(){
+
+    
+    const indice = {};
+
+    
+    let duplicados = new Set();
+
+    
+    for( let simbolo of simbolos){
+
+        
+        let numeros = [];
+
+        
+        for(let i = 0; i < 4; i++){
+
+            
+            let numero_aleatorio;
+            
+            
+            do {
+                numero_aleatorio = Math.floor(Math.random() * 32) + 1;
+            } while(duplicados.has(numero_aleatorio));
+                
+            
+            duplicados.add(numero_aleatorio);
+
+            
+            numeros.push(numero_aleatorio);
+        }
+
+        
+        indice[simbolo] = numeros; 
+    }
+    
+    return indice
+}
+console.log(JSON.stringify(simbolosEquivalencia(), null, 4));
