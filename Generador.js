@@ -44,10 +44,12 @@ function crearEquivalencia(){
             //creas variable y le asignas la funcion de crear numero
             let numero_aleatorio;
             
+            //genera numeros aleatorios hasta que sea unico. SIN REPETIRSE
             do {
                 numero_aleatorio = Math.floor(Math.random() * 104) + 1;
             } while(duplicados.has(numero_aleatorio));
                 
+            // mete los numeros unicos generados en el saco de duplicados
             duplicados.add(numero_aleatorio);
 
             //guardas los 3 numero en el array numeros
