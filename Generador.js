@@ -1,12 +1,23 @@
 /* 
-Programa para crear un objeto con letras 
-y simbolos que tengan atribuidos 3 numeros,
-generados de manera aleatorio. 
-3 numeros del 1 al 100
+Programa para crear un objeto con letras que tengan atribuidas 4 numeros,
+Numeros generados de manera aleatoria.
+4 numeros del 1 al 104.
+
+
+El problema que enfrentamos es que los numeros generados aleatoriamente acaban por repetirse.
+Y mas de 1 letra termina por tener el mismo numero que otra. Lo que impide que funcione correctamente.
+en el momento de generar el numero debemos revisar si ya ha salido.
+Si no ha salido antes se a;ade al - let numero -
+si SI ha salido antesse repite la generacion de numero
+repitiendo el proceso hasta hayar un numero no repetido
+DO WHILE
+el inconveniente que encuentro es que podrian repetirse los mismos numeros una y otra vez-
+realentizando el proceso.
+
 
 */
 
-//crear un array con las letras y los simbolos que quieras utilizar
+//crear un array con las letras que quieras utilizar
 let letras_Y_simbolos = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
@@ -16,20 +27,21 @@ let letras_Y_simbolos = [
 //creas la funcion que asigna los numeros a las letras
 function crearEquivalencia(){
 
-    //creas un objeto que guarde las letras y signos con sus numeros
+    //creas un objeto que guarde las letras con sus numeros
     let indice = {};
 
     //creas una bucle que vaya letra por letra por el array
     for(let i = 0; i < letras_Y_simbolos.length; i++){
 
-        /*creas un nuevo array para almacenar los 3 numeros que
-        asignaras a la letra/simbolo por el que esta pasando el bucle*/
+        /*creas un nuevo array para almacenar los 4 numeros que se
+        asignaran a la letra por el que esta pasando el bucle*/
         let numeros = [];
 
-        //creas un bucle para que corra 3 veces
-        for(let e = 0; e < 3; e++){
+        //creas un bucle para que corra 4 veces
+        for(let e = 0; e < 4; e++){
+
             //creas variable y le asignas la funcion de crear numero
-            let numero_aleatorio = Math.floor(Math.random() * 100) + 1;
+            let numero_aleatorio = Math.floor(Math.random() * 104) + 1;
 
             //guardas los 3 numero en el array numeros
             numeros.push(numero_aleatorio);
@@ -50,45 +62,3 @@ console.log(crearEquivalencia());
 =======================================================================
 =======================================================================
 */
-/*
-Hemo generado un indice con la funcion anterior, y desde la
-consola del navegador la hemos copida y pegado aqui.
-*/
-
-
-let diccionario = {
-    "!": [90, 16, 15],
-    '$': [71, 51, 20],
-    '%': [18, 92, 46],
-    '*':[1, 11, 31],
-    '+':[8, 91, 47],
-    '.': [84, 27, 42],
-    '@': [30, 51, 22],
-    'a': [1, 57, 90],
-    'b': [78, 41, 90],
-    'c': [9, 34, 77],
-    'd': [25, 87, 28],
-    'e': [3, 85, 53],
-    'f': [52, 73, 40],
-    'g': [86, 29, 97],
-    'h': [31, 68, 61],
-    'i': [47, 32, 51],
-    'j': [64, 20, 93],
-    'k': [67, 74, 50],
-    'l': [26, 35, 55],
-    'm': [3, 23, 43],
-    'n': [71, 94, 70],
-    'o': [63, 42, 10],
-    'p': [41, 92, 5],
-    'q': [44, 87, 66],
-    'r': [93, 74, 31],
-    's': [35, 75, 96],
-    't': [66, 39, 15],
-    'u': [25, 14, 94],
-    'v': [79, 63, 84],
-    'w': [8, 35, 35],
-    'x': [1, 98, 89],
-    'y': [23, 89, 10],
-    'z': [9, 92, 47],
-    '_': [27, 83, 58],
-}
