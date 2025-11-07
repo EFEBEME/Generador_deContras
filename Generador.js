@@ -21,27 +21,36 @@ realentizando el proceso.
 let letras_Y_simbolos = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
-    'y', 'z', '.', '!', '_', '@', '$', '%', '*', '+'
+    'y', 'z'
 ];
 
 //creas la funcion que asigna los numeros a las letras
 function crearEquivalencia(){
 
     //creas un objeto que guarde las letras con sus numeros
-    let indice = {};
+    const indice = {};
+    let duplicados = new Set();
 
     //creas una bucle que vaya letra por letra por el array
-    for(let i = 0; i < letras_Y_simbolos.length; i++){
+    for( let letra of letras_Y_simbolos){
 
         /*creas un nuevo array para almacenar los 4 numeros que se
         asignaran a la letra por el que esta pasando el bucle*/
         let numeros = [];
 
         //creas un bucle para que corra 4 veces
-        for(let e = 0; e < 4; e++){
+        for(let i = 0; i < 4; i++){
 
             //creas variable y le asignas la funcion de crear numero
-            let numero_aleatorio = Math.floor(Math.random() * 104) + 1;
+            let numero_aleatorio;
+            
+            //genera numeros aleatorios hasta que sea unico. SIN REPETIRSE
+            do {
+                numero_aleatorio = Math.floor(Math.random() * 104) + 1;
+            } while(duplicados.has(numero_aleatorio));
+                
+            // mete los numeros unicos generados en el saco de duplicados
+            duplicados.add(numero_aleatorio);
 
             //guardas los 3 numero en el array numeros
             numeros.push(numero_aleatorio);
@@ -49,14 +58,13 @@ function crearEquivalencia(){
 
         /*modificas el objeto 'indice' para anadirle la letra\simbolo
         y los 3 numeros guardados en el array*/
-        indice[letras_Y_simbolos[i]] = numeros; 
+        indice[letra] = numeros; 
     }
     //devuelves el indice ya creado
     return indice
 }
 //llamas a la funcion para que se genere el objeto 'indice'
-console.log(crearEquivalencia());
-
+console.log(JSON.stringify(crearEquivalencia(), null, 4));
 
 /*
 =======================================================================
