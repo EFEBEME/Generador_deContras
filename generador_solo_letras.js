@@ -80,4 +80,66 @@ function generador(){
 //imprime la funcion 'generador' que estoy llamando ahora
 console.log(generador());
 
+/* 
+===============================================================================================
+===============================================================================================
 
+Ahora hacemos lo mismo, pero para los signos
+*/
+
+
+
+
+const simbolosConSusNumeros = {
+    ".": [5, 18, 25, 3],
+    "!": [30, 6, 20, 11],
+    "_": [13, 8, 26, 2],
+    "@": [32, 29, 1, 27],
+    "$": [17, 7, 12, 31],
+    "%": [9, 19, 14, 4],
+    "*": [22, 24, 28, 16],
+    "+": [10, 21, 15, 23]
+}
+
+
+//variable donde luego guardaremos el numero aleatorio generado
+let randomNumber2;
+
+//funcion de numero aleatorio, que guarda el numero en la variable creada justo ahora
+function randomNum2(){
+    randomNumber2 = Math.floor(Math.random() * 32) + 1;
+    return randomNumber2;
+}
+
+//array donde almacenamos las 8 letras que vayan tocando
+let simbolos_escogidos = [];
+
+
+
+
+//funcion que genera el numero; lee el array; coge la letra y la guarda
+//bucle de 8
+function generador2(){
+    //ejecuta el siguiente codigo mientras...
+    do{
+        //llamo a la funcion de crear numero aleatorio
+        randomNum2();
+        //revisas el objeto
+        for (simbolo in simbolosConSusNumeros){
+            //si el numero incluido en el array de las letras coincide con el numero generado
+            if (simbolosConSusNumeros[simbolo].includes(randomNumber2)){
+                //incluyeme esa letra en el array de letras escogidas
+                simbolos_escogidos.push(simbolo);
+                
+            }
+        }
+    //...mientras que el array tenga menos de 8 valores
+    } while (simbolos_escogidos.length < 8);
+
+    //devuelveme las letras esocgidas
+    return simbolos_escogidos;
+    
+}
+
+//imprime la funcion 'generador' que estoy llamando ahora
+console.log(generador2());
