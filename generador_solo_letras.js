@@ -5,7 +5,8 @@ letra y me devuelva esa letra.
 
 Que se repita 8 veces
 
-Debemos tener un array de letras+sus numeros ya, a modo de prueba
+Debemos tener un array de letras+sus numeros ya creado.
+Usaremos este a modo de prueba.
 */
 
 const letrasConSusNumeros = {
