@@ -1,5 +1,5 @@
 /* 
-Titulo:
+Titulo: Añadida funcion de baraja
 */
 
 //importamos los arrays de letras y simbolos
