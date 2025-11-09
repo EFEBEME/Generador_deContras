@@ -67,33 +67,35 @@ console.log(`The shuffled password is: ${shuffled_password}`);
 
 */
 
+
 //creamos una funcion y la llamamos Hash, que procesara el parametro str que introduzcamos
 function Hash(str) {
 
     //creamos la variable Hash que luego utilizaremos
     let hash = 0;
 
-    //iniciamos un bucle de largo como el parametro que introduzcamos en la funcion == longitud de password
-    for (let i = 0; i < str.length; i++) {
+        //iniciamos un bucle tan largo como el parametro que introduzcamos en la funcion == longitud de password
+        for (let i = 0; i < str.length; i++) {
 
-        // creamos la variable char. en la posicion i de la longitud del str se introduce su valor Unicode A = 65, B = 66, etc.
-        const char = str.charCodeAt(i);
+            // creamos la variable char. en la posicion i de la longitud del str se introduce su valor Unicode A = 65, B = 66, etc.
+            const char = str.charCodeAt(i);
 
-        // cambiamos el valor de la variable hash.
+            // cambiamos el valor de la variable hash.
 
-        // [hash << 5] - equivale a multiplicar el hash por 2 al poder de 5 = 32
+            // [hash << 5] - equivale a multiplicar el hash por 2 al poder de 5 = 32
 
-        // [(hash << 5) - hash] - Esto es [hash * 32 - hash], que matemáticamente es [hash * 31]
-        // Multiplicar por 31 es un truco clásico en hash functions
+            // [(hash << 5) - hash] - Esto es [hash * 32 - hash], que matemáticamente es [hash * 31]
+            // Multiplicar por 31 es un truco clásico en hash functions
 
-        //Finalmente, sumamos char (el código numérico del carácter actual).
-        hash = ((hash << 5) - hash) + char;
+            //Finalmente, sumamos char (el código numérico del carácter actual).
+            hash = ((hash << 5) - hash) + char;
 
-        //Es una forma rápida de forzar que JavaScript trate hash como un entero de 32 bits con signo.
-        // En JavaScript, todos los números son técnicamente de 64 bits flotante (Number).
-        // Al usar & con un solo número, JS lo convierte automáticamente a 32 bits enteros antes de hacer la operación.
-        hash = hash & hash; // convert to 32-bit integer
-    }
+            //Es una forma rápida de forzar que JavaScript trate hash como un entero de 32 bits con signo.
+            // En JavaScript, todos los números son técnicamente de 64 bits flotante (Number).
+            // Al usar & con un solo número, JS lo convierte automáticamente a 32 bits enteros antes de hacer la operación.
+            hash = hash & hash; // convert to 32-bit integer
+        }
+    
 
     // >>> es el operador de desplazamiento a la derecha sin signo en JavaScript.
     // Toma un número de 32 bits y lo interpreta como un entero sin signo (unsigned).
@@ -105,6 +107,7 @@ function Hash(str) {
     //.toString(16) → lo convierte en cadena hexadecimal
 
     return (hash >>> 0).toString(16); // >>>0 makes it unsigned
+
 }
 
 const password = 'rock'+ shuffled_password;
@@ -113,4 +116,27 @@ const hashed = Hash(password);
 console.log("Password:", password);
 console.log("Simple hash:", hashed);
 
-    
+
+/*
+=====================================================================
+SHA256
+=====================================================================
+*/
+
+async function hashSHA256(str) {
+    // Convert string to bytes
+    const encoder = new TextEncoder();
+    const data = encoder.encode(str);
+
+    // Compute SHA-256 hash
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+
+    // Convert bytes to hex string
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+    return hashHex;
+}
+
+// Example usage:
+hashSHA256(shuffled_password).then(hash => console.log(`SHA256 Hash: ${hash}`));
