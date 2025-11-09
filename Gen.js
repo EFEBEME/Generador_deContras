@@ -58,4 +58,59 @@ let shuffled_password = final_password_array.join('');
 
 //imprimimos la contraseña barajada
 console.log(`The shuffled password is: ${shuffled_password}`);
+
+
+/*
+===============================================================================================================
+                                    HASH
+===============================================================================================================
+
+*/
+
+//creamos una funcion y la llamamos Hash, que procesara el parametro str que introduzcamos
+function Hash(str) {
+
+    //creamos la variable Hash que luego utilizaremos
+    let hash = 0;
+
+    //iniciamos un bucle de largo como el parametro que introduzcamos en la funcion == longitud de password
+    for (let i = 0; i < str.length; i++) {
+
+        // creamos la variable char. en la posicion i de la longitud del str se introduce su valor Unicode A = 65, B = 66, etc.
+        const char = str.charCodeAt(i);
+
+        // cambiamos el valor de la variable hash.
+
+        // [hash << 5] - equivale a multiplicar el hash por 2 al poder de 5 = 32
+
+        // [(hash << 5) - hash] - Esto es [hash * 32 - hash], que matemáticamente es [hash * 31]
+        // Multiplicar por 31 es un truco clásico en hash functions
+
+        //Finalmente, sumamos char (el código numérico del carácter actual).
+        hash = ((hash << 5) - hash) + char;
+
+        //Es una forma rápida de forzar que JavaScript trate hash como un entero de 32 bits con signo.
+        // En JavaScript, todos los números son técnicamente de 64 bits flotante (Number).
+        // Al usar & con un solo número, JS lo convierte automáticamente a 32 bits enteros antes de hacer la operación.
+        hash = hash & hash; // convert to 32-bit integer
+    }
+
+    // >>> es el operador de desplazamiento a la derecha sin signo en JavaScript.
+    // Toma un número de 32 bits y lo interpreta como un entero sin signo (unsigned).
+
+    // EJEMPLO: let hash = -12345;
+    // console.log(hash);        // -1234
+    // console.log(hash >>> 0);  // 4294954951
+
+    //.toString(16) → lo convierte en cadena hexadecimal
+
+    return (hash >>> 0).toString(16); // >>>0 makes it unsigned
+}
+
+const password = 'rock'+ shuffled_password;
+const hashed = Hash(password);
+
+console.log("Password:", password);
+console.log("Simple hash:", hashed);
+
     
