@@ -1,41 +1,58 @@
-/* 
-Programa para crear un objeto con letras que tengan atribuidas 4 numeros,
-Numeros generados de manera aleatoria.
-4 numeros del 1 al 104.
-*/
+/* =========DESCRIPCIÓN:
 
-//crear un array con las letras que quieras utilizar
+Programa para crear un Objeto con LETRAS que tengan atribuidas 4 numeros (ej.: a = 2, 55, 35, 78)
+Los numeros son generados de manera totalmente aleatoria.
+===============================================================================*/
+
+/*==========PASOS:*/
+
+//Crear un Array con las LETRAS que quieras utilizar
 export let letras = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
     'y', 'z'
 ];
 
-// Array con símbolos - FALTABA EXPORTAR
+
+// Crear un Array con SÍMBOLOS - FALTABA EXPORTAR
 export let simbolos = [
     '.', '!', '_', '@', '$', '%', '*', '+'
 ];
 
-//creas la funcion que asigna los numeros a las letras
+
+//Crear la funcion que asigna los numeros a las LETRAS
 export function letrasEquivalencia(){
-    //creas un objeto que guarde las letras con sus numeros
-    const indice = {};
+
+    
+    //Crear un Objeto vacío donde se guardaran las LETRAS con sus numeros
+    const índice = {};
+
+    //Crear una variable donde se guardarán los numero que ya han salido, para
+    //repetirlos
     let duplicados = new Set();
+    
 
-    //creas una bucle que vaya letra por letra por el array
+    //Crear una bucle-FOR que vaya LETRA por LETRA por el Array
     for( let letra of letras){
-        /*creas un nuevo array para almacenar los 4 numeros que se
-        asignaran a la letra por el que esta pasando el bucle*/
-        let numeros = [];
 
-        //creas un bucle para que corra 4 veces
+        
+        /*Crear un nuevo Array donde se almacenarán los 4 numeros que más
+        adelante se asignarán a la LETRA por el que está pasando el bucle*/
+        let numeros = [];
+        
+
+        //Crear un bucle para que corra 4 veces
         for(let i = 0; i < 4; i++){
-            //creas variable y le asignas la funcion de crear numero
+
+            
+            //Crear variable donde se guardará el numero generado aleatoriamente
             let numero_aleatorio;
             
-            //genera numeros aleatorios hasta que sea unico. SIN REPETIRSE
+            /*=================CONTINUAR AQUI==================*/
+            //Generar numero aleatorio
             do {
                 numero_aleatorio = Math.floor(Math.random() * 104) + 1;
+                //Repite la funcion de nuevo si el numero ya se ha generado anteriormente
             } while(duplicados.has(numero_aleatorio));
                 
             // mete los numeros unicos generados en el saco de duplicados
