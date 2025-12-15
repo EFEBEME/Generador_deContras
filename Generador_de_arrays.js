@@ -27,6 +27,7 @@ export function letrasEquivalencia(){
     //Crear un Objeto vacío donde se guardaran las LETRAS con sus numeros
     const índice = {};
 
+    
     //Crear una variable donde se guardarán los numero que ya han salido, para
     //repetirlos
     let duplicados = new Set();
@@ -47,13 +48,17 @@ export function letrasEquivalencia(){
             
             //Crear variable donde se guardará el numero generado aleatoriamente
             let numero_aleatorio;
+
             
-            /*=================CONTINUAR AQUI==================*/
-            //Generar numero aleatorio
+            //Comenzar un bucle que genera un numero aleatorio del 1 -104
             do {
                 numero_aleatorio = Math.floor(Math.random() * 104) + 1;
+
+                
                 //Repite la funcion de nuevo si el numero ya se ha generado anteriormente
+                //Se repite hasta que cada uno de los numeros sea único
             } while(duplicados.has(numero_aleatorio));
+            
                 
             // mete los numeros unicos generados en el saco de duplicados
             duplicados.add(numero_aleatorio);
