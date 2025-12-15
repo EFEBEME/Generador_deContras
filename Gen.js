@@ -1,6 +1,10 @@
-/* 
-Titulo: Añadida funcion de baraja
-*/
+/* =========DESCRIPCIÓN:
+
+Programa para crear una contraseña aleatoria que incluya letras y símbolos, de
+16 caracteres.
+
+Añadidas las funciones de SALT y Hash
+===============================================================================*/
 
 //importamos los arrays de letras y simbolos
 //+ importamos las funciones que asignas numeros a letras y simbolos
