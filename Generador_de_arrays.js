@@ -55,26 +55,26 @@ export function letrasEquivalencia(){
                 numero_aleatorio = Math.floor(Math.random() * 104) + 1;
 
                 
-                //Repite la funcion de nuevo si el numero ya se ha generado anteriormente
-                //Se repite hasta que cada uno de los numeros sea único
+                //Repetir la funcion de nuevo si el numero ya se ha generado anteriormente
+                //Repetir hasta que cada uno de los numeros sea único
             } while(duplicados.has(numero_aleatorio));
             
                 
-            // mete los numeros unicos generados en el saco de duplicados
+            //Guardar los numeros que se van generando en el saco de duplicados
             duplicados.add(numero_aleatorio);
 
-            //guardas los 4 numeros en el array numeros
+            //Guardar los 4 numeros del bucle "for(let i = 0; i < 4; i++)" en el Array numeros
             numeros.push(numero_aleatorio);
         }
 
-        /*modificas el objeto 'indice' para anadirle la letra\simbolo
-        y los 4 numeros guardados en el array*/
+        /*Añadir la letra y los 4 numeros guardados en el array dentro del Objeto indice*/
         indice[letra] = numeros; 
     }
-    //devuelves el indice ya creado
+    //Devolver el resultado final
     return indice;
 }
 
+//Exactamente mismo procedimiento para los símbolos
 export function simbolosEquivalencia(){
     const indice = {};
     let duplicados = new Set();
