@@ -1,44 +1,75 @@
-/* 
-Aqui vamos a crear una funcion que genere un numero aleatorio
-Observe que el numero aleatorio coincida con su correspondiente
-letra y me devuelva esa letra.
+/* =========DESCRIPCIÓN:
 
-Que se repita 8 veces
+Programa para elegir 8 letras de manera aleatoria del Objeto indice del
+modulo anterior (archivo - generador_de_arrays.js)
+=========================================================================*/
 
-Debemos tener un array de letras+sus numeros ya creado.
-Usaremos este a modo de prueba.
-*/
+/*==========PASOS:*/
 
-// Función principal para letras
-export function generador(letrasConSusNumeros) {
-    // Array donde almacenamos las 8 letras - LOCAL para evitar acumulación
+//Datos demo:
+const letrasConSusNumerosEjemplo = {
+    "a": [62, 102, 87, 36],
+    "b": [49, 43, 21, 86],
+    "c": [91, 67, 101, 56]
+};
+
+const simbolosConSusNumerosEjemplo = {
+    ".": [5, 18, 25, 3],
+    "!": [30, 6, 20, 11],
+    "_": [13, 8, 26, 2]
+};
+
+
+//Crear la funcion que seleccionará 8 numeros a partir de un parametro
+//Parametro = Objeto {letras: numero, numero, numero, numero}
+export function generador(letrasConSusNumerosEjemplo) {
+
+    
+    // Crear un Array donde almacenamos las 8 letras
     let letras_escogidas = [];
 
-    //ejecuta el siguiente codigo mientras...
+    
+    //Comenzar un bucle que se repetira hasta alcanzar 8 letras
     do {
-        // Generar número aleatorio
-        let randomNumber = Math.floor(Math.random() * 104) + 1;
+
         
-        //revisas el objeto
+        // Generar número aleatorio y guardarlo dentro de la variable randomNumber
+        let randomNumber = Math.floor(Math.random() * 104) + 1;
+
+        
+        //Iniciar un bucle que recorra el parametro de la funcion
         for (let letra in letrasConSusNumeros) {
-            //si el numero incluido en el array de las letras coincide con el numero generado
+
+            
+            //Establecer una condicion para encontrart coincidencias entre el 
+            //numero aleatorio y los valores del parametro
             if (letrasConSusNumeros[letra].includes(randomNumber)) {
-                //incluyeme esa letra en el array de letras escogidas
+
+                
+                //Encontrar la clave de dicho valor coincidente y guardarla en el
+                //Array letras_escogidas
                 letras_escogidas.push(letra);
-                break; // Salir del for una vez encontrada la letra
+
+                
+                //Salir del for una vez encontrada la letra
+                break; 
             }
         }
-    //...mientras que el array tenga menos de 8 valores
+
+        
+    //Repetir hasta el el Array alcance las 8 letras
     } while (letras_escogidas.length < 8);
 
-    //devuelveme las letras escogidas
+    
+    //Retornar el resultado final
     return letras_escogidas;
 }
 
-// Función para símbolos
+
+
+//Exactamente mismo procedimiento para los símbolos
 export function generador2(simbolosConSusNumeros) {
     let simbolos_escogidos = [];
-
 
     do {
         let randomNumber2 = Math.floor(Math.random() * 32) + 1;
@@ -54,18 +85,7 @@ export function generador2(simbolosConSusNumeros) {
     return simbolos_escogidos;
 }
 
-// Ejemplo de uso con datos de prueba (opcional)
-const letrasConSusNumerosEjemplo = {
-    "a": [62, 102, 87, 36],
-    "b": [49, 43, 21, 86],
-    "c": [91, 67, 101, 56]
-};
 
-const simbolosConSusNumerosEjemplo = {
-    ".": [5, 18, 25, 3],
-    "!": [30, 6, 20, 11],
-    "_": [13, 8, 26, 2]
-};
 
 //console.log("🔤 Módulo generador_solo_letras cargado");
 // console.log("Prueba letras:", generador(letrasConSusNumerosEjemplo));
