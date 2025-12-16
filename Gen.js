@@ -82,31 +82,35 @@ console.log(`The shuffled password is: ${shuffled_password}`);
 
 //Crear una funcion llamada Hash, que procesará el parametro str que introduzcamos, en nuestro caso, la contraseña generada
 function Hash(str) {
+    
 
     //Crear la variable Hash que luego utilizaremos
     let hash = 0;
+    
 
-        //Iniciar un bucle con tantas iteraciones como caracteres contiene el parámetro
-        for (let i = 0; i < str.length; i++) {
+    //Iniciar un bucle con tantas iteraciones como caracteres contiene el parámetro
+    for (let i = 0; i < str.length; i++) {
+            
 
-            //Crear la variable char e introducir en la posicion del carácter i del parámerto str se introduce su valor Unicode A = 65, B = 66, etc.
-            const char = str.charCodeAt(i);
+        //Crear la variable char e introducir en la posicion del carácter i del parámerto str se introduce su valor Unicode A = 65, B = 66, etc.
+        const char = str.charCodeAt(i);
+            
 
-            // cambiamos el valor de la variable hash.
+        // Cambiar el valor de la variable hash.
 
-            // [hash << 5] - equivale a multiplicar el hash por 2 al poder de 5 = 32
+        // [hash << 5] - equivale a multiplicar el hash por 2 al poder de 5 = 32
 
-            // [(hash << 5) - hash] - Esto es [hash * 32 - hash], que matemáticamente es [hash * 31]
-            // Multiplicar por 31 es un truco clásico en hash functions
+        // [(hash << 5) - hash] - Esto es [hash * 32 - hash], que matemáticamente es [hash * 31]
+        // Multiplicar por 31 es un truco clásico en hash functions
 
-            //Finalmente, sumamos char (el código numérico del carácter actual).
-            hash = ((hash << 5) - hash) + char;
+        //Finalmente, sumamos char (el código numérico del carácter actual).
+         hash = ((hash << 5) - hash) + char;
 
             //Es una forma rápida de forzar que JavaScript trate hash como un entero de 32 bits con signo.
             // En JavaScript, todos los números son técnicamente de 64 bits flotante (Number).
             // Al usar & con un solo número, JS lo convierte automáticamente a 32 bits enteros antes de hacer la operación.
-            hash = hash & hash;
-        }
+        hash = hash & hash;
+    }
     
 
     // >>> es el operador de desplazamiento a la derecha sin signo en JavaScript.
