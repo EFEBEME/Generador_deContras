@@ -24,22 +24,26 @@ import {
 import { generador, generador2 } from './Generador_de_objetos.js';
 
 
-//creamos las variables donde vamos a guardar los arrays de letras y simbolos
+//Crear las variables donde vamos a guardar los Objetos letra:numero y símbolo:numero
 //con sus correspondientes numeros
 const nuevasLetras = letrasEquivalencia();
 const nuevosSimbolos = simbolosEquivalencia();
 
 
-//creamos las variables donde vamos a guardar las 8 letras y simbolos elegidos aleatoriamente
+//Crear las variables donde vamos a guardar las 8 letras y símbolos
 const letrasGeneradas = generador(nuevasLetras);
 const simbolosGenerados = generador2(nuevosSimbolos);
 
 
-//juntamos las letras y simbolos en un solo String
+//Juntar las letras y simbolos en un solo String
 let final_password = letrasGeneradas.join('') + simbolosGenerados.join('');
 
-//imprimimos el resultado en la consola
+//Imprimir el resultado en la consola
 console.log(`Generated password: ${final_password}`)
+
+
+
+//Llegados a este punto veremos algo así en la consola: jpfhgnri@.!?@!_$
 
 
 
