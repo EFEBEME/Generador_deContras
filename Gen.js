@@ -10,9 +10,7 @@ Añadidas las funciones de SALT y Hash
 
 //Importar Arrays de LETRAS y SÍMBOLOS
 //Importar las funciones letrasEquivalencias y símbolosEquivalencias
-//importamos los arrays de letras y simbolos
-//+ importamos las funciones que asignas numeros a letras y simbolos
-//se importa desde el archivo que define las funciones
+
 import {
     letras,
     simbolos,
@@ -21,7 +19,8 @@ import {
     
 } from './Generador_de_arrays.js';
 
-//importamos las funciones que saca un array de 8 letras y 8 simbolos aleatoriamente
+
+//Importar las funciones que escogen 8 letras y 8 símbolos aleatoriamenre de los Arrays
 import { generador, generador2 } from './Generador_de_objetos.js';
 
 
