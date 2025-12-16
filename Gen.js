@@ -52,10 +52,11 @@ console.log(`Generated password: ${final_password}`)
 FUNCION DE BARAJA
 ===============*/
 
-//creamos un array que contiene las letras y numeros de la contraseña
+//Crear un Array que contendrá la contraseña generada cortada caracter a caracter, con split('')
 let final_password_array = final_password.split('');
 
-//iniciamos un bucle para que recorra el array
+
+//Iniciarun bucle para que recorra el array
 for(let i = final_password_array.length - 1; i > 0; i--){
 
         // generamos un numero aleatorio que quepa dentro de la longitud del array
@@ -71,12 +72,12 @@ let shuffled_password = final_password_array.join('');
 console.log(`The shuffled password is: ${shuffled_password}`);
 
 
-/*
-===============================================================================================================
-                                    HASH
-===============================================================================================================
 
-*/
+
+
+/*=====
+  HASH
+======*/
 
 
 //creamos una funcion y la llamamos Hash, que procesara el parametro str que introduzcamos
