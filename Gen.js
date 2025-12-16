@@ -48,7 +48,7 @@ console.log(`Generated password: ${final_password}`)
 
 
 
-/*==≈====≈=======
+/*===============
 FUNCION DE BARAJA
 ===============*/
 
@@ -56,19 +56,19 @@ FUNCION DE BARAJA
 let final_password_array = final_password.split('');
 
 
-//Iniciarun bucle para que recorra el array
+//Iniciar un bucle para que recorra el array letra por letra
 for(let i = final_password_array.length - 1; i > 0; i--){
 
-        // generamos un numero aleatorio que quepa dentro de la longitud del array
+        // Generar un numero aleatorio que quepa dentro de la longitud del array
         let j = Math.floor(Math.random() * (i + 1));
 
-        //modificamos el array, intercambiando la posicion del indice i del bucle padre, con la posicion del indice j generada aleatoriamente
+        //Modificar el Array, para intercambiar la posicion del indice i del bucle padre (LETRA), con la posicion del indice j generada aleatoriamente (NUMERO)
         [final_password_array[i], final_password_array[j]] = [final_password_array[j], final_password_array[i]];
 } 
-//generamos una variable que guarde el array como un String
+//Generar una variable que guarde el Array como un String
 let shuffled_password = final_password_array.join('');
 
-//imprimimos la contraseña barajada
+//Imprimir la contraseña barajada
 console.log(`The shuffled password is: ${shuffled_password}`);
 
 
@@ -80,16 +80,16 @@ console.log(`The shuffled password is: ${shuffled_password}`);
 ======*/
 
 
-//creamos una funcion y la llamamos Hash, que procesara el parametro str que introduzcamos
+//Crear una funcion llamada Hash, que procesará el parametro str que introduzcamos, en nuestro caso, la contraseña generada
 function Hash(str) {
 
-    //creamos la variable Hash que luego utilizaremos
+    //Crear la variable Hash que luego utilizaremos
     let hash = 0;
 
-        //iniciamos un bucle tan largo como el parametro que introduzcamos en la funcion == longitud de password
+        //Iniciar un bucle con tantas iteraciones como caracteres contiene el parámetro
         for (let i = 0; i < str.length; i++) {
 
-            // creamos la variable char. en la posicion i de la longitud del str se introduce su valor Unicode A = 65, B = 66, etc.
+            //Crear la variable char e introducir en la posicion del carácter i del parámerto str se introduce su valor Unicode A = 65, B = 66, etc.
             const char = str.charCodeAt(i);
 
             // cambiamos el valor de la variable hash.
@@ -105,7 +105,7 @@ function Hash(str) {
             //Es una forma rápida de forzar que JavaScript trate hash como un entero de 32 bits con signo.
             // En JavaScript, todos los números son técnicamente de 64 bits flotante (Number).
             // Al usar & con un solo número, JS lo convierte automáticamente a 32 bits enteros antes de hacer la operación.
-            hash = hash & hash; // convert to 32-bit integer
+            hash = hash & hash;
         }
     
 
