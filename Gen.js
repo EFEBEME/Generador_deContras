@@ -44,9 +44,9 @@ console.log(`Generated password: ${final_password}`)
 
 
 
-/*
+/*==≈====≈=======
 FUNCION DE BARAJA
-*/
+===============*/
 
 //creamos un array que contiene las letras y numeros de la contraseña
 let final_password_array = final_password.split('');
