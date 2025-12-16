@@ -6,6 +6,10 @@ Programa para crear una contraseña aleatoria que incluya letras y símbolos, de
 Añadidas las funciones de SALT y Hash
 ===============================================================================*/
 
+/*=========PASOS:
+
+//Importar Arrays de LETRAS y SÍMBOLOS
+//Importar las funciones letrasEquivalencias y símbolosEquivalencias
 //importamos los arrays de letras y simbolos
 //+ importamos las funciones que asignas numeros a letras y simbolos
 //se importa desde el archivo que define las funciones
