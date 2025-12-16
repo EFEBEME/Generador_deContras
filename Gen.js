@@ -8,8 +8,11 @@ Añadidas las funciones de SALT y Hash
 
 /*=========PASOS:
 
-//Importar Arrays de LETRAS y SÍMBOLOS
-//Importar las funciones letrasEquivalencias y símbolosEquivalencias
+
+/*Importar: 
+Arrays de LETRAS y SÍMBOLOS
+Funciones letrasEquivalencias y símbolosEquivalencias
+*/
 
 import {
     letras,
@@ -20,33 +23,39 @@ import {
 } from './Generador_de_arrays.js';
 
 
+
 //Importar las funciones que escogen 8 letras y 8 símbolos aleatoriamenre de los Arrays
 import { generador, generador2 } from './Generador_de_objetos.js';
 
 
-//creamos las variables donde vamos a guardar los arrays de letras y simbolos
-//con sus correspondientes numeros
+
+//Crear las variables donde vamos a guardar los Objetos letra:numero y símbolo:numero
 const nuevasLetras = letrasEquivalencia();
 const nuevosSimbolos = simbolosEquivalencia();
 
 
-//creamos las variables donde vamos a guardar las 8 letras y simbolos elegidos aleatoriamente
+//Crear las variables donde vamos a guardar las 8 letras y símbolos
 const letrasGeneradas = generador(nuevasLetras);
 const simbolosGenerados = generador2(nuevosSimbolos);
 
 
-//juntamos las letras y simbolos en un solo String
+//Juntar las letras y simbolos en un solo String
 let final_password = letrasGeneradas.join('') + simbolosGenerados.join('');
 
-//imprimimos el resultado en la consola
+
+//Imprimir el resultado en la consola
 console.log(`Generated password: ${final_password}`)
 
 
+//Llegados a este punto veremos algo así en la consola: jpfhgnri@.!?@!_$
 
 
-/*
+
+
+
+/*==≈====≈=======
 FUNCION DE BARAJA
-*/
+===============*/
 
 //creamos un array que contiene las letras y numeros de la contraseña
 let final_password_array = final_password.split('');
@@ -64,11 +73,7 @@ for(let i = final_password_array.length - 1; i > 0; i--){
 let shuffled_password = final_password_array.join('');
 
 //imprimimos la contraseña barajada
-console.log(`The shuffled password is: ${shuffled_password}`);
-
-
-/*
-===============================================================================================================
+console.log(`The shuffled password 
                                     HASH
 ===============================================================================================================
 
