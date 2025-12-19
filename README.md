@@ -1,4 +1,4 @@
-# ConGen
+# ConGen.js
 Generador de contraseñas de 16 caracteres con: letras, símbolos, SALT y HASH.
 
 ## Caracteristicas
