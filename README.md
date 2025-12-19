@@ -1,1 +1,6 @@
-Generador de contraseñas de 16 caracteres que contienenletras y símbolos, SALT y HASH
+Generador de contraseñas de 16 caracteres con: letras, símbolos, SALT y HASH.
+
+
+
+Lenguaje - JavaScript
+
